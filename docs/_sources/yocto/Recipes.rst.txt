@@ -1,0 +1,145 @@
+Recipes
+=======
+
+View
+----
+
+Visualizza tutte le ricette::
+
+	$ bitbake -s
+
+Recipetool
+----------
+
+Aggiungere una nuova ricetta da repository::
+
+	$ recipetool create -o ninvaders_0.1.1.bb https://downloads.sourceforge.net/project/ninvaders/ninvaders/0.1.1/ninvaders-0.1.1.tar.gz
+
+Devtool-New
+-----------
+
+Creare una nuova ricetta::
+
+	$ devtool add nuova-ricetta ../../0work/nuova-ricetta
+
+Questo comando crea una struttura nel folder **buid/workspace**::
+
+	├── appends
+	│   └── nuova-ricetta.bbappend
+	├── conf
+	│   └── layer.conf
+	├── README
+	└── recipes
+	    └── nuova-ricetta
+	        └── nuova-ricetta.bb
+
+Se serve modifichiamo la nostra ricetta **nuova-ricetta.bb**::
+
+	do_configure () {
+		# Specify any needed configure commands here
+		:
+	}
+
+	do_compile () {
+		# You will almost certainly need to add additional arguments here
+		oe_runmake
+	}
+
+	do_install () {
+		# NOTE: unable to determine what to put here - there is a Makefile but no
+		# target named "install", so you will need to define this yourself
+		:
+	}
+
+oppure::
+
+	do_compile() {
+		${CC} hello-world.c -o hello-world
+	}
+
+	do_install() {
+		install -d ${D}${bindir}
+		install -m 0755 hello-world ${D}${bindir}
+	}
+
+Devtool-Reset
+-------------
+
+Per rimuovere la ricetta senza confermare le modifiche::
+
+	$ devtool reset nuova-ricetta
+
+La ricetta viene spostata sotto il folder **attic/** e lascia allo user
+ il compito di cancellare definitivamente la ricetta. 
+
+Example: ciaomondo
+------------------
+
+Per creare una nuova ricetta::
+
+	$ devtool add ciaomondo ${HOME}/mysource/ciaomondo
+
+Questo comando la prima volta crea una struttura sull folder **buid/workspace** del tipo::
+
+	├── appends
+	│   └── ciaomondo.bbappend
+	├── conf
+	│   └── layer.conf
+	├── README
+	└── recipes
+	    └── ciaomondo
+	        └── ciaomondo.bb
+
+Se serve modifichiamo la nostra ricetta **ciaomondo.bb**.
+
+Building
+~~~~~~~~
+
+Ora possiamo costruire il nostro pacchetto::
+
+	$ devtool build ciaomondo
+
+Deploy
+~~~~~~
+
+Per provare il pacchetto::
+
+	$ devtool deploy-target -s ciaomondo root@192.168.7.2
+
+Per provare ad eseguire sul target::
+
+	# ciao
+
+per rimuovere dal target::
+
+	$ devtool undeploy-target -c ciaomondo root@192.168.7.2
+
+Finish
+~~~~~~
+
+Prima si deve committare le modifiche nel repository locale. Esempio::
+
+	$ git commit -am "mia modifica"
+
+Poi si conclude indicando dove si vuole depositare il nostro lavoro **ciaomondo** 
+
+Esempio nel layer: **meta-lmi**::
+
+	$ devtool finish ciaomondo meta-lmi
+
+Se si vuol usare il nuovo pacchetto bisogna aggiungerlo all'immagine.
+
+Esempio lo si aggiunge all'immagine: **mia-immagine.bb**::
+
+	IMAGE_INSTALL_append = " ciaomondo"
+
+Building
+~~~~~~~~
+
+Ricostruire l'immagine::
+
+	$ bitbake mia-immagine
+
+Verifica della presenza pacchetto::
+
+	$ find tmp/deploy/ipk/ -name hello-*

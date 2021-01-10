@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repository &#8212; Pillole 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="di Yocto" href="../yocto/index.html" />
+    <link rel="prev" title="Configure" href="Configure.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="repository">
+<h1>Repository<a class="headerlink" href="#repository" title="Permalink to this headline">¶</a></h1>
+<p>Per creare un nuovo repository si consiglia di creare:</p>
+<ul class="simple">
+<li><p>Il repository Locale</p></li>
+<li><p>Il repository Remoto</p></li>
+</ul>
+<div class="section" id="locale">
+<h2>Locale<a class="headerlink" href="#locale" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="inizializzare-il-repository">
+<h3>Inizializzare il repository<a class="headerlink" href="#inizializzare-il-repository" title="Permalink to this headline">¶</a></h3>
+<p>Per inizializzare il repository locale:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git init
+</pre></div>
+</div>
+<p>Se non si ha la variabile globale dell’utente impostata:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config user.name &quot;orcim&quot;
+$ git config user.email orciml@gmail.com
+</pre></div>
+</div>
+<p>Indicare inoltre il repository remoto su cui riversare il locale:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote add origin git@github.com:orcim/sphinxdoc-git.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="salvare-nel-repository">
+<h3>Salvare nel repository<a class="headerlink" href="#salvare-nel-repository" title="Permalink to this headline">¶</a></h3>
+<p>Per salvare il tutto nel repository locale:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add .
+$ git commit -m &#39;first commit&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="remote">
+<h2>Remote<a class="headerlink" href="#remote" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creare-il-repository">
+<h3>Creare il repository<a class="headerlink" href="#creare-il-repository" title="Permalink to this headline">¶</a></h3>
+<p>Per creare il repository remoto:</p>
+<ul class="simple">
+<li><p>Andare sulla nostra pagina dei repositories <strong>https://github.com/orcim?tab=repositories</strong></p></li>
+<li><p>Selezionare attraverso il pulsante <strong>+</strong> la voce <strong>New Repository</strong></p></li>
+<li><p>Assegnare un nome. Esempio: <strong>sphinxdoc-git</strong></p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>Salvare nel repository<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Per salvare il tutto nel repository remoto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin master
+</pre></div>
+</div>
+<p>Se si vuole ai successivi push non indicare sempre <strong>origin master</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push --set-upstream origin master
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+              <div class="related bottom">
+                &nbsp;
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="Configure.html" title="Previous document">Configure</a>
+        </li>
+        <li>
+          <a href="../yocto/index.html" title="Next document">di Yocto</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+              </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pillole</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contenuti:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">di Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/index.html">di Yocto</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">di Git</a><ul>
+      <li>Previous: <a href="Configure.html" title="previous chapter">Configure</a></li>
+      <li>Next: <a href="../yocto/index.html" title="next chapter">di Yocto</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, by Orcim.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

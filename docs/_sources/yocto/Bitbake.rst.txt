@@ -1,0 +1,105 @@
+Bitbake
+=======
+
+Task
+----
+
+Esecuzione di un determinato task::
+
+	$ bitbake -c <task>
+
+Visualizzare la lista dei task appartenenti ad un determinato pacchetto::
+
+	$ bitbake -c listtasks <pkgname>
+
+Visualizzare la lista dei task eseguiti durante l'esecuzione::
+
+	$ bitbake <pkgname> | tee
+
+Force
+-----
+
+Forzare la riesecuzione di un package da zero::
+
+	$ bitbake -f <pkgname>
+
+Cleansstate
+-----------
+
+Pulire la cache dei stati di un determinato pacchetto::
+
+	$ bitbake -c cleansstate <pkgname>
+
+Clean
+-----
+
+Pulire un determinato pacchetto::
+
+	$ bitbake <pkgname> -c clean
+
+Compile
+-------
+
+Compilare un determinato pacchetto::
+
+	$ bitbake <pkgname> -c compile
+
+Devshell
+--------
+
+Aprire un terminale per lavorare su un determinato pacchetto::
+
+	$ bitbake <pkgname> -c devshell
+
+Puo' essere anche sul kernel::
+
+	$ bitbake virtual/kernel -c devshell
+
+Per rimuovere le modifiche::
+
+	$ bitbake -c cleanall virtual/kernel
+	$ bitbake virtual/kernel
+
+Se si vuole lavorare direttamente su yocto::
+
+	$ bitbake virtual/kernel -C devshell
+
+Menuconfig
+----------
+
+Eseguire la configurazione del kernel::
+
+	$ bitbake -c menuconfig virtual/kernel
+
+Fetch
+-----
+
+Scaricare tutti i sorgenti dei pacchetti e loro dipendenze::
+
+	$ bitbake -c fetchall world
+
+Scaricare di nuovo i sorgenti di un determinato pacchetto::
+
+	$ bitbake <pkgname> -c fetch -f
+
+Package
+-------
+
+Creare l'indice dei pacchetti della nostra immagine::
+
+	$ bitbake package-index
+
+Image
+-----
+
+Costruire una immagine::
+
+	$ bitbake <target_image>
+
+Costruire una immagine senza fermarsi in caso di errori::
+
+	$ bitbake <target_image> -k
+
+Ricostruire l'immagine del root file systems (**rootfs**)::
+
+	$ bitbake <target_image> -C rootfs

@@ -1,0 +1,40 @@
+Install
+#######
+
+Programmi di supporto
+---------------------
+
+In questo progetto useremo i seguenti programmi:
+
+- Git
+- Sphinx
+
+Install
+=======
+
+Si presuppone di essere in un ambiente *Debian linux* compatibile.
+
+Git Install
+-----------
+
+Per installare **git** si consiglia::
+
+	$ sudo apt install git gitk
+
+Links di interesse:
+
+- https://git-scm.com/doc
+- https://git-scm.com/docs
+
+Sphinx Install
+--------------
+
+Per installare **sphinx** si consiglia::
+
+	$ pip3 install -U pip
+	$ pip3 install sphinx
+
+Link di interesse:
+
+- https://www.sphinx-doc.org/en/master/index.html
+- https://alabaster.readthedocs.io/en/latest/customization.html

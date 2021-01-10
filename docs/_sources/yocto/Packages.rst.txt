@@ -1,0 +1,33 @@
+Packages
+========
+
+Host
+----
+
+You can regenerate the package list on the Host using the command::
+
+	$ bitbake package-index
+
+Target
+------
+
+View the opkg options::
+
+	$ opkg
+
+To list available packages::
+
+	opkg list
+
+To list installed packages::
+
+	opkg list_installed
+
+Verify if the package gdbserver is already installed::
+
+	opkg list_installed | grep gdbserver
+
+Remove and reinstall the package gdbserver::
+
+	opkg remove gdbserver
+	opkg install gdbserver

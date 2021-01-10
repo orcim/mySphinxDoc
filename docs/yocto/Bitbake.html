@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitbake &#8212; Pillole 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Packages" href="Packages.html" />
+    <link rel="prev" title="Recipes" href="Recipes.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bitbake">
+<h1>Bitbake<a class="headerlink" href="#bitbake" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="task">
+<h2>Task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h2>
+<p>Esecuzione di un determinato task:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake -c &lt;task&gt;
+</pre></div>
+</div>
+<p>Visualizzare la lista dei task appartenenti ad un determinato pacchetto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake -c listtasks &lt;pkgname&gt;
+</pre></div>
+</div>
+<p>Visualizzare la lista dei task eseguiti durante l’esecuzione:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake &lt;pkgname&gt; | tee
+</pre></div>
+</div>
+</div>
+<div class="section" id="force">
+<h2>Force<a class="headerlink" href="#force" title="Permalink to this headline">¶</a></h2>
+<p>Forzare la riesecuzione di un package da zero:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake -f &lt;pkgname&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="cleansstate">
+<h2>Cleansstate<a class="headerlink" href="#cleansstate" title="Permalink to this headline">¶</a></h2>
+<p>Pulire la cache dei stati di un determinato pacchetto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake -c cleansstate &lt;pkgname&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="clean">
+<h2>Clean<a class="headerlink" href="#clean" title="Permalink to this headline">¶</a></h2>
+<p>Pulire un determinato pacchetto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake &lt;pkgname&gt; -c clean
+</pre></div>
+</div>
+</div>
+<div class="section" id="compile">
+<h2>Compile<a class="headerlink" href="#compile" title="Permalink to this headline">¶</a></h2>
+<p>Compilare un determinato pacchetto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake &lt;pkgname&gt; -c compile
+</pre></div>
+</div>
+</div>
+<div class="section" id="devshell">
+<h2>Devshell<a class="headerlink" href="#devshell" title="Permalink to this headline">¶</a></h2>
+<p>Aprire un terminale per lavorare su un determinato pacchetto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake &lt;pkgname&gt; -c devshell
+</pre></div>
+</div>
+<p>Puo’ essere anche sul kernel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake virtual/kernel -c devshell
+</pre></div>
+</div>
+<p>Per rimuovere le modifiche:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake -c cleanall virtual/kernel
+$ bitbake virtual/kernel
+</pre></div>
+</div>
+<p>Se si vuole lavorare direttamente su yocto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake virtual/kernel -C devshell
+</pre></div>
+</div>
+</div>
+<div class="section" id="menuconfig">
+<h2>Menuconfig<a class="headerlink" href="#menuconfig" title="Permalink to this headline">¶</a></h2>
+<p>Eseguire la configurazione del kernel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake -c menuconfig virtual/kernel
+</pre></div>
+</div>
+</div>
+<div class="section" id="fetch">
+<h2>Fetch<a class="headerlink" href="#fetch" title="Permalink to this headline">¶</a></h2>
+<p>Scaricare tutti i sorgenti dei pacchetti e loro dipendenze:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake -c fetchall world
+</pre></div>
+</div>
+<p>Scaricare di nuovo i sorgenti di un determinato pacchetto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake &lt;pkgname&gt; -c fetch -f
+</pre></div>
+</div>
+</div>
+<div class="section" id="package">
+<h2>Package<a class="headerlink" href="#package" title="Permalink to this headline">¶</a></h2>
+<p>Creare l’indice dei pacchetti della nostra immagine:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake package-index
+</pre></div>
+</div>
+</div>
+<div class="section" id="image">
+<h2>Image<a class="headerlink" href="#image" title="Permalink to this headline">¶</a></h2>
+<p>Costruire una immagine:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake &lt;target_image&gt;
+</pre></div>
+</div>
+<p>Costruire una immagine senza fermarsi in caso di errori:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake &lt;target_image&gt; -k
+</pre></div>
+</div>
+<p>Ricostruire l’immagine del root file systems (<strong>rootfs</strong>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake &lt;target_image&gt; -C rootfs
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+              <div class="related bottom">
+                &nbsp;
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="Recipes.html" title="Previous document">Recipes</a>
+        </li>
+        <li>
+          <a href="Packages.html" title="Next document">Packages</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+              </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pillole</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contenuti:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../git/index.html">di Git</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">di Yocto</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">di Yocto</a><ul>
+      <li>Previous: <a href="Recipes.html" title="previous chapter">Recipes</a></li>
+      <li>Next: <a href="Packages.html" title="next chapter">Packages</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, by Orcim.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

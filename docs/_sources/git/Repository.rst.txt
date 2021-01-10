@@ -1,0 +1,57 @@
+Repository
+##########
+
+Per creare un nuovo repository si consiglia di creare:
+
+- Il repository Locale
+- Il repository Remoto
+
+Locale
+======
+
+Inizializzare il repository
+----------------------------
+
+Per inizializzare il repository locale::
+
+	$ git init
+
+Se non si ha la variabile globale dell'utente impostata::
+
+	$ git config user.name "orcim"
+	$ git config user.email orciml@gmail.com
+
+Indicare inoltre il repository remoto su cui riversare il locale::
+
+	$ git remote add origin git@github.com:orcim/sphinxdoc-git.git
+
+Salvare nel repository
+----------------------
+
+Per salvare il tutto nel repository locale::
+
+	$ git add .
+	$ git commit -m 'first commit'
+
+Remote
+======
+
+Creare il repository
+--------------------
+
+Per creare il repository remoto:
+
+- Andare sulla nostra pagina dei repositories **https://github.com/orcim?tab=repositories**
+- Selezionare attraverso il pulsante **+** la voce **New Repository**
+- Assegnare un nome. Esempio: **sphinxdoc-git**
+
+Salvare nel repository
+----------------------
+
+Per salvare il tutto nel repository remoto::
+
+	$ git push origin master
+
+Se si vuole ai successivi push non indicare sempre **origin master**::
+
+	$ git push --set-upstream origin master

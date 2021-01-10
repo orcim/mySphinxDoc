@@ -1,0 +1,87 @@
+Project
+#######
+
+Nel nostro progetto useremo il framework **Sphinx**.
+
+Per creare una buona documentazione si deve creare:
+
+- La struttura di lavoro
+
+**Sphinx** usa formattare il testo con la modalita'  *restructured text*.
+
+Link utile: https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html
+
+Work
+====
+
+Creare la struttura
+-------------------
+
+Per creare la struttura::
+
+	$ mkdir sphinxdoc-git && cd sphinxdoc-git
+
+Creare alcuni files di supporto::
+
+	$ touch README .gitignore
+
+**Opzione:** se si adotta la struttura compatibile con le *Gtihub Pages*
+ non serve creare le seguenti directories::
+
+	$ mkdir docs sphinx
+
+Inizializzare la documentazione
+-------------------------------
+
+Per inizializzare la struttura della documentazione::
+
+	$ cd sphinx
+	$ sphinx-quickstart
+
+Rispondere alle domande per creare la struttura del progetto.
+
+Esempio:
+
+- sorgente esterno alla build: y 
+- nome progetto: Git
+- nome autore: orcim
+- versione: 0.0.1
+- lingua: it
+
+Struttura compatibile con le *Github Pages*
+-------------------------------------------
+
+Modificare nel **Makefile** la variabile **BUILDDIR**
+	da **build** a **docs**
+
+Rimuovere la directory build::
+
+	$ rm -rf build
+
+Provare la compilazione::
+
+	$ make html
+
+Struttura della documentazione
+------------------------------
+
+Nella directory **source** troviamo i files di lavoro:
+
+- index.rst		(il file pricipale. La nostra prima pagina)
+- conf.py			(file di configurazione)
+
+Modifichiamo **index.rst** del nostro progetto per aggiungere
+ le pagina desiserate.
+
+Esempio *StartProject*::
+
+	.. toctree::
+		:maxdepth: 2
+		:caption: Contents:
+
+		...
+		StartProject.rst
+		...
+
+.. warning:: Attenzione che **index.rst** usa l'identazione con spazio=3 !
+

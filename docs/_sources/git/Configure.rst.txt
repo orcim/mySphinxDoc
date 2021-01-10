@@ -1,0 +1,67 @@
+Configure
+#########
+
+Prima di iniziare a lavorare con i repositories dobbiamo
+ configurare le nostre variabili d'ambiente.
+
+La configurazione si suddivide in:
+
+- Locale
+- Global
+
+Global
+======
+
+Interviene su tutti i repositories presente nel nostro **Host** 
+ (nostro personal computer)
+
+Identity
+--------
+
+Per aggiungere le nostre referenze **globali**::
+
+	$ git config --global user.name "orcim"
+	$ git config --global user.email orciml@gmail.com
+
+Editor
+------
+
+Per impostare il nostro **editor** preferito::
+
+	$ git config --global core.editor code
+
+Local
+=====
+
+Identity
+--------
+
+Per aggiungere le nostre referenze **locali**::
+
+	$ git config user.name "orcim"
+	$ git config user.email orciml@gmail.com
+
+Tools
+=====
+
+List
+----
+
+Per visualizzare le nostre variabili::
+
+	$ git config --list
+
+Edit
+----
+
+Per editare le nostre variabili::
+
+	$ git config --global --edit
+	$ git config --edit
+
+Links
+=====
+
+Interessanti:
+
+- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config

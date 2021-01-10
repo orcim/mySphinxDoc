@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipes &#8212; Pillole 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bitbake" href="Bitbake.html" />
+    <link rel="prev" title="Layers" href="Layers.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="recipes">
+<h1>Recipes<a class="headerlink" href="#recipes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="view">
+<h2>View<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h2>
+<p>Visualizza tutte le ricette:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake -s
+</pre></div>
+</div>
+</div>
+<div class="section" id="recipetool">
+<h2>Recipetool<a class="headerlink" href="#recipetool" title="Permalink to this headline">¶</a></h2>
+<p>Aggiungere una nuova ricetta da repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ recipetool create -o ninvaders_0.1.1.bb https://downloads.sourceforge.net/project/ninvaders/ninvaders/0.1.1/ninvaders-0.1.1.tar.gz
+</pre></div>
+</div>
+</div>
+<div class="section" id="devtool-new">
+<h2>Devtool-New<a class="headerlink" href="#devtool-new" title="Permalink to this headline">¶</a></h2>
+<p>Creare una nuova ricetta:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ devtool add nuova-ricetta ../../0work/nuova-ricetta
+</pre></div>
+</div>
+<p>Questo comando crea una struttura nel folder <strong>buid/workspace</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── appends
+│   └── nuova-ricetta.bbappend
+├── conf
+│   └── layer.conf
+├── README
+└── recipes
+    └── nuova-ricetta
+        └── nuova-ricetta.bb
+</pre></div>
+</div>
+<p>Se serve modifichiamo la nostra ricetta <strong>nuova-ricetta.bb</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">do_configure</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1"># Specify any needed configure commands here</span>
+        <span class="p">:</span>
+<span class="p">}</span>
+
+<span class="n">do_compile</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1"># You will almost certainly need to add additional arguments here</span>
+        <span class="n">oe_runmake</span>
+<span class="p">}</span>
+
+<span class="n">do_install</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1"># NOTE: unable to determine what to put here - there is a Makefile but no</span>
+        <span class="c1"># target named &quot;install&quot;, so you will need to define this yourself</span>
+        <span class="p">:</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>oppure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>do_compile() {
+        ${CC} hello-world.c -o hello-world
+}
+
+do_install() {
+        install -d ${D}${bindir}
+        install -m 0755 hello-world ${D}${bindir}
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="devtool-reset">
+<h2>Devtool-Reset<a class="headerlink" href="#devtool-reset" title="Permalink to this headline">¶</a></h2>
+<p>Per rimuovere la ricetta senza confermare le modifiche:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ devtool reset nuova-ricetta
+</pre></div>
+</div>
+<dl class="simple">
+<dt>La ricetta viene spostata sotto il folder <strong>attic/</strong> e lascia allo user</dt><dd><p>il compito di cancellare definitivamente la ricetta.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example-ciaomondo">
+<h2>Example: ciaomondo<a class="headerlink" href="#example-ciaomondo" title="Permalink to this headline">¶</a></h2>
+<p>Per creare una nuova ricetta:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ devtool add ciaomondo ${HOME}/mysource/ciaomondo
+</pre></div>
+</div>
+<p>Questo comando la prima volta crea una struttura sull folder <strong>buid/workspace</strong> del tipo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── appends
+│   └── ciaomondo.bbappend
+├── conf
+│   └── layer.conf
+├── README
+└── recipes
+    └── ciaomondo
+        └── ciaomondo.bb
+</pre></div>
+</div>
+<p>Se serve modifichiamo la nostra ricetta <strong>ciaomondo.bb</strong>.</p>
+<div class="section" id="building">
+<h3>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h3>
+<p>Ora possiamo costruire il nostro pacchetto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ devtool build ciaomondo
+</pre></div>
+</div>
+</div>
+<div class="section" id="deploy">
+<h3>Deploy<a class="headerlink" href="#deploy" title="Permalink to this headline">¶</a></h3>
+<p>Per provare il pacchetto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ devtool deploy-target -s ciaomondo root@192.168.7.2
+</pre></div>
+</div>
+<p>Per provare ad eseguire sul target:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ciao</span>
+</pre></div>
+</div>
+<p>per rimuovere dal target:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ devtool undeploy-target -c ciaomondo root@192.168.7.2
+</pre></div>
+</div>
+</div>
+<div class="section" id="finish">
+<h3>Finish<a class="headerlink" href="#finish" title="Permalink to this headline">¶</a></h3>
+<p>Prima si deve committare le modifiche nel repository locale. Esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -am &quot;mia modifica&quot;
+</pre></div>
+</div>
+<p>Poi si conclude indicando dove si vuole depositare il nostro lavoro <strong>ciaomondo</strong></p>
+<p>Esempio nel layer: <strong>meta-lmi</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ devtool finish ciaomondo meta-lmi
+</pre></div>
+</div>
+<p>Se si vuol usare il nuovo pacchetto bisogna aggiungerlo all’immagine.</p>
+<p>Esempio lo si aggiunge all’immagine: <strong>mia-immagine.bb</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IMAGE_INSTALL_append</span> <span class="o">=</span> <span class="s2">&quot; ciaomondo&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Building<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Ricostruire l’immagine:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake mia-immagine
+</pre></div>
+</div>
+<p>Verifica della presenza pacchetto:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ find tmp/deploy/ipk/ -name hello-*
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+              <div class="related bottom">
+                &nbsp;
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="Layers.html" title="Previous document">Layers</a>
+        </li>
+        <li>
+          <a href="Bitbake.html" title="Next document">Bitbake</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+              </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pillole</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contenuti:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../git/index.html">di Git</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">di Yocto</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">di Yocto</a><ul>
+      <li>Previous: <a href="Layers.html" title="previous chapter">Layers</a></li>
+      <li>Next: <a href="Bitbake.html" title="next chapter">Bitbake</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, by Orcim.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

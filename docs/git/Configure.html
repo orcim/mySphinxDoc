@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configure &#8212; Pillole 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Repository" href="Repository.html" />
+    <link rel="prev" title="Project" href="Project.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="configure">
+<h1>Configure<a class="headerlink" href="#configure" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>Prima di iniziare a lavorare con i repositories dobbiamo</dt><dd><p>configurare le nostre variabili d’ambiente.</p>
+</dd>
+</dl>
+<p>La configurazione si suddivide in:</p>
+<ul class="simple">
+<li><p>Locale</p></li>
+<li><p>Global</p></li>
+</ul>
+<div class="section" id="global">
+<h2>Global<a class="headerlink" href="#global" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Interviene su tutti i repositories presente nel nostro <strong>Host</strong></dt><dd><p>(nostro personal computer)</p>
+</dd>
+</dl>
+<div class="section" id="identity">
+<h3>Identity<a class="headerlink" href="#identity" title="Permalink to this headline">¶</a></h3>
+<p>Per aggiungere le nostre referenze <strong>globali</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name &quot;orcim&quot;
+$ git config --global user.email orciml@gmail.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="editor">
+<h3>Editor<a class="headerlink" href="#editor" title="Permalink to this headline">¶</a></h3>
+<p>Per impostare il nostro <strong>editor</strong> preferito:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global core.editor code
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="local">
+<h2>Local<a class="headerlink" href="#local" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Identity<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Per aggiungere le nostre referenze <strong>locali</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config user.name &quot;orcim&quot;
+$ git config user.email orciml@gmail.com
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list">
+<h3>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
+<p>Per visualizzare le nostre variabili:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --list
+</pre></div>
+</div>
+</div>
+<div class="section" id="edit">
+<h3>Edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h3>
+<p>Per editare le nostre variabili:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global --edit
+$ git config --edit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<p>Interessanti:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config">https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config</a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+              <div class="related bottom">
+                &nbsp;
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="Project.html" title="Previous document">Project</a>
+        </li>
+        <li>
+          <a href="Repository.html" title="Next document">Repository</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+              </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pillole</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contenuti:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">di Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/index.html">di Yocto</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">di Git</a><ul>
+      <li>Previous: <a href="Project.html" title="previous chapter">Project</a></li>
+      <li>Next: <a href="Repository.html" title="next chapter">Repository</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, by Orcim.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

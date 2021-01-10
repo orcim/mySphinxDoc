@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layers &#8212; Pillole 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Recipes" href="Recipes.html" />
+    <link rel="prev" title="di Yocto" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="layers">
+<h1>Layers<a class="headerlink" href="#layers" title="Permalink to this headline">¶</a></h1>
+<p>Il progetto Yocto sfrutta il concetto dei <em>Layers</em> che altro non sono delle suddivisioni fatte con delle directories che ragruppano a loro volta delle ricette.</p>
+<div class="section" id="show">
+<h2>Show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h2>
+<p>Visualizza tutti i layers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake-layers show-layers
+</pre></div>
+</div>
+<p>Visualizza tutti gli appends:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake-layers show-appends
+</pre></div>
+</div>
+<p>Visualizza tutti gli overlayed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake-layers show-overlayed
+</pre></div>
+</div>
+<p>Visualizza tutte le ricette:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake-layers show-recipes
+$ bitbake -s
+</pre></div>
+</div>
+</div>
+<div class="section" id="new-add-remove-delete">
+<h2>New Add, Remove, Delete<a class="headerlink" href="#new-add-remove-delete" title="Permalink to this headline">¶</a></h2>
+<p>Creare un nuovo layer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export myPATH=${PWD}
+
+$ bitbake-layers create-layer --priority 7 ${myPATH}/meta-training
+</pre></div>
+</div>
+<p>Aggiungere un layer alla configurazione: <strong>bblayers.conf</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake-layers add-layer ${myPATH}/meta-training
+</pre></div>
+</div>
+<p>Rimuovere un layer dalla configurazione: <strong>bblayers.conf</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bitbake-layers remove-layer ${myPATH}/meta-training
+</pre></div>
+</div>
+<p>Cancellare il layer e i files contenuti:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm -rf ${myPATH}/meta-training
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+              <div class="related bottom">
+                &nbsp;
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="index.html" title="Previous document">di Yocto</a>
+        </li>
+        <li>
+          <a href="Recipes.html" title="Next document">Recipes</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+              </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pillole</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contenuti:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../git/index.html">di Git</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">di Yocto</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">di Yocto</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">di Yocto</a></li>
+      <li>Next: <a href="Recipes.html" title="next chapter">Recipes</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, by Orcim.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

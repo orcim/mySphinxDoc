@@ -1,0 +1,45 @@
+Layers
+======
+
+Il progetto Yocto sfrutta il concetto dei *Layers* che altro non sono delle suddivisioni fatte con delle directories che ragruppano a loro volta delle ricette.
+
+Show
+----
+
+Visualizza tutti i layers::
+
+	$ bitbake-layers show-layers
+
+Visualizza tutti gli appends::
+
+	$ bitbake-layers show-appends
+
+Visualizza tutti gli overlayed::
+
+	$ bitbake-layers show-overlayed
+
+Visualizza tutte le ricette::
+
+	$ bitbake-layers show-recipes
+	$ bitbake -s
+
+New Add, Remove, Delete
+-----------------------
+
+Creare un nuovo layer::
+
+	$ export myPATH=${PWD}
+
+	$ bitbake-layers create-layer --priority 7 ${myPATH}/meta-training
+
+Aggiungere un layer alla configurazione: **bblayers.conf**::
+
+	$ bitbake-layers add-layer ${myPATH}/meta-training
+
+Rimuovere un layer dalla configurazione: **bblayers.conf**::
+
+	$ bitbake-layers remove-layer ${myPATH}/meta-training
+
+Cancellare il layer e i files contenuti::
+
+	$ rm -rf ${myPATH}/meta-training
