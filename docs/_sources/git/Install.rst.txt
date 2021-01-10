@@ -1,21 +1,15 @@
 Install
 #######
 
-Programmi di supporto
----------------------
-
 In questo progetto useremo i seguenti programmi:
 
 - Git
 - Sphinx
 
-Install
-=======
-
-Si presuppone di essere in un ambiente *Debian linux* compatibile.
+Si presuppone di essere in un ambiente **Debian linux** compatibile.
 
 Git Install
------------
+===========
 
 Per installare **git** si consiglia::
 
@@ -27,7 +21,7 @@ Links di interesse:
 - https://git-scm.com/docs
 
 Sphinx Install
---------------
+==============
 
 Per installare **sphinx** si consiglia::
 
